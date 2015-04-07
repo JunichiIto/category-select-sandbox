@@ -17,11 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.select :category_id, Category.find_by_name('root').sub_categories.order(:code).map{|c| [c.name, c.id]}, {include_blank: '(カテゴリ)'}, {class: 'category-select'} %>
+    <%= f.select :category_id, Category.find_by_name('root').sub_categories.map{|c| [c.name, c.id]}, {include_blank: '(カテゴリ)'}, {class: 'category-select'} %>
   </div>
   <div class="field">
     <%= f.label :sub_category_id %><br>
-    <%= f.select :sub_category_id, (@item.category.try(:sub_categories).try(:order, :code) || []).map{|c| [c.name, c.id]}, {include_blank: '(サブカテゴリ)'}, {class: 'sub-category-select'} %>
+    <%= f.select :sub_category_id, (@item.category.try(:sub_categories) || []).map{|c| [c.name, c.id]}, {include_blank: '(サブカテゴリ)'}, {class: 'sub-category-select'} %>
   </div>
   <div class="actions">
     <%= f.submit 'Save' %>
