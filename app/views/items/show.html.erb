@@ -8,10 +8,12 @@
   <strong>Category:</strong>
   <%= @item.category.try(:name) %>
 </p>
-<p>
-  <strong>Sub category:</strong>
-  <%= @item.sub_category.try(:name) %>
-</p>
+<% if @item.sub_category.present? %>
+  <p>
+    <strong>Sub category:</strong>
+    <%= @item.sub_category.try(:name) %>
+  </p>
+<% end %>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
