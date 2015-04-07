@@ -35,3 +35,7 @@ rails s
 ```
 bin/rspec
 ```
+
+## License
+
+MIT licence
