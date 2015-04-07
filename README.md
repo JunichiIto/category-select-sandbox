@@ -2,6 +2,8 @@
 
 Sample app for http://ja.stackoverflow.com/questions/8761
 
+![Image](http://f.st-hatena.com/images/fotolife/J/JunichiIto/20150408/20150408071950.gif)
+
 ## How to setup
 
 ### 1. Install PhantomJS
