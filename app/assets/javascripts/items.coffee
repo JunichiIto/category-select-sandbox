@@ -10,11 +10,11 @@ $ ->
         $select.append(option)
 
     replaceSubCategoryOptions = ->
-      category_id = $(@).val()
+      url = $(@).find('option:selected').data().subCategoriesPath
       $select = $(@).closest('form').find('.sub-category-select')
-      if category_id.length > 0
+      if url?
         $.ajax
-          url: "/categories/#{category_id}/sub_categories"
+          url: url
           dataType: "json"
           success: (results) ->
             $('.field-sub-category').toggle(results.length > 0)
