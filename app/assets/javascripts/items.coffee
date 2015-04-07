@@ -1,3 +1,24 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  replaceOptions = ($select, results) ->
+    $select.empty()
+    option = $('<option>')
+    $select.append(option)
+    $.each results, ->
+      option = $('<option>')
+      option.val(this.id)
+      option.text(this.name)
+      $select.append(option)
+
+  replaceSubCategoryOptions = ->
+    category_id = $(@).val()
+    $select = $(@).closest('form').find('.sub-category-select')
+    if category_id.length > 0
+      $.ajax
+        url: "/categories/#{category_id}/sub_categories"
+        dataType: "json"
+        success: (results) ->
+          replaceOptions($select, results)
+    else
+      $select.empty()
+
+  $('.category-select').change(replaceSubCategoryOptions)
