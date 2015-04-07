@@ -55,5 +55,6 @@ end
 
 group :development do
   gem 'quiet_assets'
+  gem 'spring-commands-rspec'
 end
 
