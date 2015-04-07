@@ -47,6 +47,12 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+group :test do
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'poltergeist'
+end
+
 group :development do
   gem 'quiet_assets'
 end
