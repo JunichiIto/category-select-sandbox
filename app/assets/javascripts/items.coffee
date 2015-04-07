@@ -17,8 +17,10 @@ $ ->
         url: "/categories/#{category_id}/sub_categories"
         dataType: "json"
         success: (results) ->
+          $('.field-sub-category').toggle(results.length > 0)
           replaceOptions($select, results)
     else
+      $('.field-sub-category').hide()
       $select.empty()
 
   $('.category-select').change(replaceSubCategoryOptions)

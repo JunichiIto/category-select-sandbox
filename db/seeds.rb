@@ -119,3 +119,5 @@ Category.create(:name => 'その他', :code => 1000500, :parent_id => 11)
 
 # アイテムのサンプル
 Item.create(category: Category.find_by_name('スポーツ'), sub_category: Category.find_by_name('スポーツ用品'), title: 'バット')
+
+Category.create(:name => '空のカテゴリ', :code => 1100000, :parent_id => 1)
