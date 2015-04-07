@@ -30,6 +30,12 @@ bin/rake db:reset db:seed
 rails s
 ```
 
+### 5. Open browser
+
+```
+open http://localhost:3000
+```
+
 ## How to run test
 
 ```
