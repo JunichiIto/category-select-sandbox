@@ -47,3 +47,7 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+group :development do
+  gem 'quiet_assets'
+end
+
