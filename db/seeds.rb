@@ -116,3 +116,6 @@ Category.create(:name => 'アウトドア用品', :code => 1000200, :parent_id =
 Category.create(:name => '自電車', :code => 1000300, :parent_id => 11)
 Category.create(:name => 'フィッシング', :code => 1000400, :parent_id => 11)
 Category.create(:name => 'その他', :code => 1000500, :parent_id => 11)
+
+# アイテムのサンプル
+Item.create(category: Category.find_by_name('スポーツ'), sub_category: Category.find_by_name('スポーツ用品'), title: 'バット')
