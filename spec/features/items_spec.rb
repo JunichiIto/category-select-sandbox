@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 feature 'Items', type: :feature do
+  background do
+    root = Category.create name: 'root'
+    sport = root.sub_categories.create(name: 'スポーツ')
+    sport.sub_categories.create(name: 'スポーツ用品')
+
+    root.sub_categories.create(name: '空のカテゴリ')
+  end
   scenario 'Mange items', js: true do
     # Itemの新規作成画面を開く
     visit root_path
