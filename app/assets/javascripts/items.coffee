@@ -1,14 +1,11 @@
 $ ->
   $("select").select2
     dropdownCssClass: 'dropdown-inverse'
+
   do ->
     appendOptions = ($select, results) ->
       items = []
-      items.push
-        id: null
-        text: null
       option = $('<option>')
-      option.text('　')
       $select.append(option)
       $.each results, ->
         option = $('<option>')
@@ -23,7 +20,6 @@ $ ->
     resetSelect = ($select) ->
       $select.empty()
       $select.select2('val', '')
-
 
     replaceSubCategoryOptions = ->
       url = $(@).find('option:selected').data().subCategoriesPath
