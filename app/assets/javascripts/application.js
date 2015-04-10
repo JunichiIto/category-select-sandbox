@@ -13,5 +13,8 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require vendor/respond.min
+//= require vendor/video
+//= require flat-ui
 //= require_tree .
 //= require turbolinks

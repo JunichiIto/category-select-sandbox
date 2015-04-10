@@ -1,4 +1,5 @@
 $ ->
+  $("select").select2({dropdownCssClass: 'dropdown-inverse'})
   do ->
     appendOptions = ($select, results) ->
       option = $('<option>')
