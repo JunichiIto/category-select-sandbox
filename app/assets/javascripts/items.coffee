@@ -4,7 +4,6 @@ $ ->
 
   do ->
     appendOptions = ($select, results) ->
-      items = []
       option = $('<option>')
       $select.append(option)
       $.each results, ->
@@ -12,10 +11,6 @@ $ ->
         option.val(this.id)
         option.text(this.name)
         $select.append(option)
-        items.push
-          id: this.id
-          text: this.name
-      items
 
     resetSelect = ($select) ->
       $select.empty()
@@ -32,9 +27,8 @@ $ ->
           success: (results) ->
             $('.field-sub-category').toggle(results.length > 0)
             resetSelect($select)
-            items = appendOptions($select, results)
+            appendOptions($select, results)
             $select.select2
-              data: items
               dropdownCssClass: 'dropdown-inverse'
       else
         resetSelect($select)
