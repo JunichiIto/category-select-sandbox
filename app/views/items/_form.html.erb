@@ -25,6 +25,6 @@
     <%= f.select :sub_category_id, category_collection(@item.category), {include_blank: true}, {id: 'sub-category-select', class: 'form-control select select-primary select-block mbl'} %>
   </div>
   <div class="actions">
-    <%= f.submit 'Save' %>
+    <%= f.submit 'Save', class: 'btn btn-info' %>
   </div>
 <% end %>
