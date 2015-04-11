@@ -17,14 +17,14 @@
   </div>
   <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.select :category_id, category_collection(Category.find_by_name('root')), {include_blank: true}, {class: 'category-select'} %>
+    <%= f.select :category_id, category_collection(Category.find_by_name('root')), {include_blank: true}, {id: 'category-select', class: 'form-control select select-primary select-block mbl'} %>
   </div>
   <% style = "display:none;" if @item.category.try(:sub_categories).blank? %>
   <div class="field field-sub-category" style="<%= style %>">
     <%= f.label :sub_category_id %><br>
-    <%= f.select :sub_category_id, category_collection(@item.category), {include_blank: true}, {class: 'sub-category-select'} %>
+    <%= f.select :sub_category_id, category_collection(@item.category), {include_blank: true}, {id: 'sub-category-select', class: 'form-control select select-primary select-block mbl'} %>
   </div>
   <div class="actions">
-    <%= f.submit 'Save' %>
+    <%= f.submit 'Save', class: 'btn btn-info' %>
   </div>
 <% end %>

@@ -1,4 +1,7 @@
 $ ->
+  $("select").select2
+    dropdownCssClass: 'dropdown-inverse'
+
   do ->
     appendOptions = ($select, results) ->
       option = $('<option>')
@@ -9,19 +12,26 @@ $ ->
         option.text(this.name)
         $select.append(option)
 
+    resetSelect = ($select) ->
+      $select.empty()
+      $select.select2('val', '')
+
     replaceSubCategoryOptions = ->
       url = $(@).find('option:selected').data().subCategoriesPath
-      $select = $(@).closest('form').find('.sub-category-select')
+      $select = $(@).closest('form').find('#sub-category-select')
+
       if url?
         $.ajax
           url: url
           dataType: "json"
           success: (results) ->
             $('.field-sub-category').toggle(results.length > 0)
-            $select.empty()
+            resetSelect($select)
             appendOptions($select, results)
+            $select.select2
+              dropdownCssClass: 'dropdown-inverse'
       else
         $('.field-sub-category').hide()
-        $select.empty()
+        resetSelect($select)
 
-    $('.category-select').change(replaceSubCategoryOptions)
+    $('#category-select').change(replaceSubCategoryOptions)
