@@ -31,7 +31,7 @@ $ ->
             $select.select2
               dropdownCssClass: 'dropdown-inverse'
       else
-        resetSelect($select)
         $('.field-sub-category').hide()
+        resetSelect($select)
 
     $('#category-select').change(replaceSubCategoryOptions)
